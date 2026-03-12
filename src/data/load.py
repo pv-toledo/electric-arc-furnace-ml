@@ -20,7 +20,6 @@ def load_datasets_from_yaml(
 
     for name, meta in manifest.items():
         path = meta.get("path")
-        parse_dates = meta.get("parse_dates") or None
 
         if path is None:
             datasets[name] = pd.DataFrame()
@@ -35,7 +34,7 @@ def load_datasets_from_yaml(
             continue
 
         try:
-            df = pd.read_csv(path, parse_dates=parse_dates, nrows=nrows)
+            df = pd.read_csv(path,nrows=nrows, dtype="string", low_memory=False, memory_map=True)
         except Exception as e:
             raise RuntimeError(f"Failed to read '{name}' from {path}: {e}") from e
         

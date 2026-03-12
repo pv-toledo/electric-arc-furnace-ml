@@ -8,12 +8,6 @@ eaf_final_chemical:
   parse_dates: ["DATETIME"]
   description: "Final chemical composition measurements in EAF."
 
-
-ladle_tapping:
-  path: ../data/raw/ladle_tapping.csv
-  parse_dates: ["DATETIME"]
-  description: "Additions at EAF tapping."
-
 basket_charged:
   path: ../data/raw/basket_charged.csv
   parse_dates: ["DATETIME"]
@@ -45,6 +39,11 @@ ferro:
   description: "Materials description with chemical element contents (composition table)."
 
   # All the datasets below are related to the ladle furnace (LF) stage, which is not the focus of this project. They are included here for completeness and potential future use.
+
+  # ladle_tapping:
+  # path: ../data/raw/ladle_tapping.csv
+  # parse_dates: ["DATETIME"]
+  # description: "Additions at EAF tapping."
 
   # lf_added:
   # path: ../data/raw/lf_added_materials.csv
