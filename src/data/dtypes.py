@@ -54,6 +54,7 @@ def cast_datasets(datasets: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:
 
     inj = datasets.get("inj_mat")
     if inj is not None:
+        inj["REVTIME"] = pd.to_datetime(inj["REVTIME"], format="%Y-%m-%d %H:%M:%S,%f", errors="coerce")
         for col in ["INJ_AMOUNT_CARBON", "INJ_FLOW_CARBON"]:
             if col in inj.columns:
                 inj[col] = pd.to_numeric(
